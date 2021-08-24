@@ -154,6 +154,10 @@ Proyecto
 		ALTER SEQUENCE seq RESTART WITH 1;
 		UPDATE t SET idcolumn=nextval('seq');
 
+		+ consultar los dias de trabajo:
+		ingenio=# select id,fecha,numerodia from ingenio.diatrabajo order by 2;
+
+
 	* Mode:
 		1. persistence/META-INF/persistence.xml:
 			hibernate.dialect
