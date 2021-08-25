@@ -1,6 +1,9 @@
 TODO
 	Crear paquete laboratorio
 
+2021-08-25
+	StockProcesoDetalle1: Al borrar el campo Temperatura, borrar los demás campos.
+
 2021-08-16
 	Stock de Proceso: A veces no aparece el botón "Cargar Items"
 	Creación de StockProcesoShowHideCargarItemsAction

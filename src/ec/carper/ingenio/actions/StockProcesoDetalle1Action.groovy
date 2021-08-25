@@ -204,20 +204,23 @@ class StockProcesoDetalle1Action extends OnChangePropertyBaseAction{
         def materialId   = (String)getView().getValue("material.id")
         def temp         = getView().getValue("temp")
         // def eq           = getView().getValue("eq")
-                
-        def mapa = getMapa(diaTrabajoId, materialId, temp)
-        mapa.each{ getView().setValue(it.key, it.value ?: null) } 
-
-        // Asignar valores en los campos de texto
-        // getView().setValue("volumen1" , volumen1?:null)
-        // getView().setValue("volumen2" , volumen2?:null)
-        // getView().setValue("peso"     , peso?:null)
-        // getView().setValue("porcBrix" , porcBrix?:null)
-        // getView().setValue("tonBrix"  , tonBrix?:null)
-        // getView().setValue("porcSac"  , porcSac?:null)
-        // getView().setValue("tonSac"   , tonSac?:null)
-        // getView().setValue("pureza"   , pureza?:null)
-        // getView().setValue("densidad" , densidad?:null)
-        // getView().setValue("factor"   , factor?:null)
+        
+        if (temp){
+            def mapa = getMapa(diaTrabajoId, materialId, temp)
+            mapa.each{ getView().setValue(it.key, it.value ?: null) } 
+        }else{
+            // Asignar valores en los campos de texto
+            // getView().setValue("volumen1" , volumen1?:null)
+            getView().setValue("volumen1" , null)
+            getView().setValue("volumen2" , null)
+            getView().setValue("peso"     , null)
+            getView().setValue("porcBrix" , null)
+            getView().setValue("tonBrix"  , null)
+            getView().setValue("porcSac"  , null)
+            getView().setValue("tonSac"   , null)
+            getView().setValue("pureza"   , null)
+            getView().setValue("densidad" , null)
+            getView().setValue("factor"   , null)
+        }
     }
 }
