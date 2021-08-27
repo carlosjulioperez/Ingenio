@@ -1,6 +1,13 @@
 TODO
 	Crear paquete laboratorio
 
+2021-08-27
+	Ajustes en StockProceso
+	Mostrar en Blc/Variables primarias/Caña/%Trash el campo TrashCana.avgPorcTrash en vez de Trash.avgPorcTrash.
+	Reemplazo de fórmula detalle5.jDiluidoBr canaNeta por canaDia
+	Reemplazo de fórmula detalle22.sacJBrCanaExtraida canaNeta por canaDia
+	El promedio Jugo.v25 varía con el sistema porque la columna v no calcula bien
+
 2021-08-25
 	StockProcesoDetalle1: Al borrar el campo Temperatura, borrar los demás campos.
 

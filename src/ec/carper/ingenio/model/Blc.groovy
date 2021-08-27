@@ -339,7 +339,7 @@ class Blc extends Formulario {
             def campo = it.material.campo ?: ""
             switch (campo){
                 case "trash":
-                    it.valor = SqlUtil.instance.getValorCampo(diaTrabajo.id, "Trash" , "avgPorcTrash")
+                    it.valor = SqlUtil.instance.getValorCampo(diaTrabajo.id, "TrashCana" , "avgPorcTrash")
                     break
                 case "brixCanaDac":
                     it.valor = SqlUtil.instance.getValorCampo(diaTrabajo.id, "Cana" , "brix")
@@ -407,7 +407,7 @@ class Blc extends Formulario {
                     break 
                 
                 case "sacJBrCanaExtraida":
-                    def d8  = getValor("canaNeta", 1)
+                    def d8  = getValor("canaDia", 1)
                     def f10 = getValor("jDiluidoBr", 2)
                     def h49 = SqlUtil.instance.getValorCampo(diaTrabajo.id, "Jugo", "jdSac")
                     def d46 = d8 ? Calculo.instance.redondear(h49*f10/d8, 2): 0
@@ -501,9 +501,12 @@ class Blc extends Formulario {
                     break
                 
                 case "jDiluidoBr":
-                    def d8  = getValor("canaNeta", 1)
+                    def d8  = getValor("canaDia", 1)
                     def f10 = getValor("jDiluidoBr", 2)
                     def d51 = d8 ? Calculo.instance.redondear(f10*100/d8, 2): 0
+                    println ">> d8:  " + d8
+                    println ">> f10: " + f10
+                    println ">> d51: " + d51
                     it.valor = d51
                     break
                 

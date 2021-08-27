@@ -37,10 +37,10 @@ class QueryTest extends ModuleTestBase {
     }
 
     void test() throws Exception {
-        getPrueba()
+        //getPrueba()
         // crearItemsPorHora(Aux.instance.diaTrabajoId)
-        // getValorCampo()
-        // getValoresBlc()
+        getValorCampo()
+        //getValoresBlc()
         //getValoresServiciosInsumosFabrica()
         //getValoresAnalisisRutinariosEspecialesFabrica()
         //getValoresBlcCenicana()
@@ -541,7 +541,7 @@ class QueryTest extends ModuleTestBase {
         
         // BLC
         println "\n>>> BLC"
-        println SqlUtil.instance.getValorCampo(Aux.instance.diaTrabajoId, "Trash" , "avgPorcTrash")
+        println "Trash: " + SqlUtil.instance.getValorCampo(Aux.instance.diaTrabajoId, "TrashCana" , "avgPorcTrash")
         println SqlUtil.instance.getValorCampo(Aux.instance.diaTrabajoId, "Cana" , "brix")
         println SqlUtil.instance.getValorCampo(Aux.instance.diaTrabajoId, "Cana" , "porcSacarosa")
         

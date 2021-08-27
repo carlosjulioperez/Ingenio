@@ -179,6 +179,7 @@
 
     <target name="deleteClasses">
         <delete dir="${class.dir}/ec"/>
+        <delete dir="${class.dir}/_run"/>
         <delete dir="temp"/>
 	</target>
 
