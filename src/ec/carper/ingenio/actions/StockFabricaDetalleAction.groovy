@@ -803,6 +803,10 @@ class StockFabricaDetalleAction extends OnChangePropertyBaseAction{
                 def t160 = d.valor?:0
 
                 // =((U144*T149)/1000)+(U155*T160)/1000
+                // def ax132 = Calculo.instance.redondear(((u144*t149)/1000)+(u155*t160)/1000, 3)
+                
+                // 2021-09-06 Cambio de fórmula
+                // =(T151+U162+P149)+AX129-65.2
                 def ax132 = Calculo.instance.redondear(((u144*t149)/1000)+(u155*t160)/1000, 3)
                 
                 def diaTrabajo = SqlUtil.instance.getDiaTrabajo(diaTrabajoId)

@@ -37,9 +37,10 @@ class QueryTest extends ModuleTestBase {
     }
 
     void test() throws Exception {
+        cambioFormulaStockFabrica()       
         //getPrueba()
         // crearItemsPorHora(Aux.instance.diaTrabajoId)
-        getValorCampo()
+        //getValorCampo()
         //getValoresBlc()
         //getValoresServiciosInsumosFabrica()
         //getValoresAnalisisRutinariosEspecialesFabrica()
@@ -533,6 +534,23 @@ class QueryTest extends ModuleTestBase {
     
     void obtenerFecha(){
         println SqlUtil.instance.obtenerFecha("06:30", Aux.instance.diaTrabajoId)
+    }
+
+    void cambioFormulaStockFabrica() {
+        def campoFk      = "stockFabrica.diaTrabajo.id"
+
+        def d = SqlUtil.instance.getDetallePorIndicador(Aux.instance.diaTrabajoId, "StockFabricaDetalle70", campoFk, "TonMF")
+        def t151 = d.valor?:0
+        println "\n>>> cambioFormulaStockFabrica()"
+        println "TonMF: "+t151
+        
+        d = SqlUtil.instance.getDetallePorIndicador(Aux.instance.diaTrabajoId, "StockFabricaDetalle71", campoFk, "TonMF")
+        def u162 = d.valor?:0
+        println "TonMF: "+u162
+
+
+
+
     }
 
     void getValorCampo(){

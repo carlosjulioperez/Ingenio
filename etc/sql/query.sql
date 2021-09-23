@@ -1,3 +1,11 @@
+-- [query editor]
+
+select id, diatrabajo_id, descripcion from ingenio.stockfabrica where descripcion like 'JUNIT';
+select * from ingenio.diatrabajo where id='ff80808172a5ebad0172c9078f1e0001';
+
+
+-- [ant]
+
 -- SELECT * FROM ingenio.paro;
 -- SELECT * FROM ingenio.parodetalle;
 -- SELECT * FROM ingenio.azucarcrudo;
@@ -9,6 +17,10 @@
 -- FROM     ingenio.stockprocesopdetalle d, ingenio.material m
 -- WHERE    d.material_id = m.id
 -- ORDER BY orden;
+
+-- select * from ingenio.indicador where descripcion like 'Ton MF';
+
+-- select * from ingenio.stockfabrica where descripcion like 'JUNIT';
 
 -- select d.stockfabrica_id, i.descripcion, valor, i.campo, modificable
 -- from ingenio.stockfabricadetalle17 d, ingenio.indicador i
