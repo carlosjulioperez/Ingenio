@@ -537,6 +537,9 @@ class QueryTest extends ModuleTestBase {
     }
 
     void cambioFormulaStockFabrica() {
+        // Fórmula nueva: =(T151+U162+P149)+AX129-65.2
+        // p149=O142*N148/1000
+
         def campoFk      = "stockFabrica.diaTrabajo.id"
 
         def d = SqlUtil.instance.getDetallePorIndicador(Aux.instance.diaTrabajoId, "StockFabricaDetalle70", campoFk, "TonMF")
@@ -547,10 +550,24 @@ class QueryTest extends ModuleTestBase {
         d = SqlUtil.instance.getDetallePorIndicador(Aux.instance.diaTrabajoId, "StockFabricaDetalle71", campoFk, "TonMF")
         def u162 = d.valor?:0
         println "TonMF: "+u162
+        
+        d = SqlUtil.instance.getDetallePorIndicador(Aux.instance.diaTrabajoId, "StockFabricaDetalle69", campoFk, "VTot")
+        def o142 = d.valor?:0
+        println "VTot: "+o142
+        
+        d = SqlUtil.instance.getDetallePorIndicador(Aux.instance.diaTrabajoId, "StockFabricaDetalle69", campoFk, "p")
+        def n148 = d.valor?:0
+        println "p: "+n148
 
+        def p149 = Calculo.instance.redondear(o142*n148/1000,2)
+        println "p149: "+p149
+        
+        d = SqlUtil.instance.getDetallePorIndicador(Aux.instance.diaTrabajoId, "StockFabricaDetalle73", campoFk, "tonMelVen")
+        def ax129 = d.valor?:0
+        println "ax129: "+ax129
 
-
-
+        def ax132 =(t151+u162+p149)+ax129
+        println "ax132: "+ax132
     }
 
     void getValorCampo(){

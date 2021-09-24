@@ -1,6 +1,15 @@
 TODO
-	Crear paquete laboratorio
 
+	Crear paquete laboratorio
+	Hacer modificable StockFabricaP / Totales / 2 Toneladas Melaza Producida Total/zafra
+	stockfabricadetalle73.tonMelProTotZaf
+
+2021-09-23
+	Cambio de fórmula ax132 en StockFabrica
+
+2021-09-22
+	Sincronización de cambios en servidor a dev
+	
 2021-08-27
 	Ajustes en StockProceso
 	Mostrar en Blc/Variables primarias/Caña/%Trash el campo TrashCana.avgPorcTrash en vez de Trash.avgPorcTrash.

@@ -710,7 +710,9 @@ class StockFabricaDetalleAction extends OnChangePropertyBaseAction{
 
             // Totales generales
             if ( numero==73 ){
-                if (indicador.campo == "tonMelVen" || indicador.campo == "tonAzuDis")
+                //24-09-2021 Para cálculo de fórmula
+                // Incluir en el oyente cuando cambie el valor de ax132=
+                if (indicador.campo == "tonMelVen" || indicador.campo == "tonMelProTotZaf" || indicador.campo == "tonAzuDis")
                     setTotalValor(73, indicador.campo, valor)
                     
                 def tonMelVen = getTotalValor(73, "tonMelVen")
@@ -805,15 +807,38 @@ class StockFabricaDetalleAction extends OnChangePropertyBaseAction{
                 // =((U144*T149)/1000)+(U155*T160)/1000
                 // def ax132 = Calculo.instance.redondear(((u144*t149)/1000)+(u155*t160)/1000, 3)
                 
-                // 2021-09-06 Cambio de fórmula
+                // 2021-09-23 Cambio de fórmula
                 // =(T151+U162+P149)+AX129-65.2
-                def ax132 = Calculo.instance.redondear(((u144*t149)/1000)+(u155*t160)/1000, 3)
+
+                // ************************************************************
+                d = SqlUtil.instance.getDetallePorIndicador(diaTrabajoId, "StockFabricaDetalle70", campoFk, "TonMF")
+                def t151 = d.valor?:0
+                
+                d = SqlUtil.instance.getDetallePorIndicador(diaTrabajoId, "StockFabricaDetalle71", campoFk, "TonMF")
+                def u162 = d.valor?:0
+                
+                d = SqlUtil.instance.getDetallePorIndicador(diaTrabajoId, "StockFabricaDetalle69", campoFk, "VTot")
+                def o142 = d.valor?:0
+                
+                d = SqlUtil.instance.getDetallePorIndicador(diaTrabajoId, "StockFabricaDetalle69", campoFk, "p")
+                def n148 = d.valor?:0
+
+                def p149 = Calculo.instance.redondear(o142*n148/1000,2)
+                
+                // d = SqlUtil.instance.getDetallePorIndicador(diaTrabajoId, "StockFabricaDetalle73", campoFk, "tonMelVen")
+                // def ax129 = d.valor?:0
+                
+                def ax129 = tonMelVen //7.86
+                def ax132 =(t151+u162+p149)+ax129
+                        
+                // ************************************************************
+
+                //def ax132 = Calculo.instance.redondear(((u144*t149)/1000)+(u155*t160)/1000, 3)
                 
                 def diaTrabajo = SqlUtil.instance.getDiaTrabajo(diaTrabajoId)
                 def diaFin = diaTrabajo.numeroDia - 1
                 def ax135 = SqlUtil.instance.getValMatBlcAcu("mielFM", diaFin)
 
-                def ax129 = tonMelVen //7.86
                 def ax140 = ax132 -ax135 + ax129
                 
                 setTotalValor(73 , "tonMelProTotZaf"    , ax132)

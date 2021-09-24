@@ -3,6 +3,15 @@
 select id, diatrabajo_id, descripcion from ingenio.stockfabrica where descripcion like 'JUNIT';
 select * from ingenio.diatrabajo where id='ff80808172a5ebad0172c9078f1e0001';
 
+select i.descripcion, valor, d.indicador_id, i.campo, modificable
+from ingenio.stockfabricadetalle73 d, ingenio.indicador i
+where d.indicador_id = i.id
+and stockfabrica_id='ff80808174df04070174df06e1f40000'
+order by orden;
+
+-- indicador.campo = 'tonMelProTotZaf'
+update stockfabricadetalle73 set modificable = true 
+where stockfabrica_id='ff80808174df04070174df06e1f40000' and indicador_id = '88';
 
 -- [ant]
 
