@@ -10,11 +10,9 @@ import org.openxava.model.*
 import ec.carper.ingenio.actions.*
 
 @Entity
-@View(members="""#
-    horaS, hora; 
-    ticket1, guia1, horaBanda1;
-    ticket2, guia2, horaBanda2;
-    ticket3, guia3, horaBanda3;
+@View(members="""
+    horaS; hora; 
+    Detalle [ticket1, guia1, horaBanda1, ticket2, guia2, horaBanda2, ticket3, guia3, horaBanda3]
 """)
 class CanaMolidaDetalle extends Identifiable {
     

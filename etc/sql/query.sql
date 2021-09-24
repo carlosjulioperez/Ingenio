@@ -11,7 +11,8 @@ order by orden;
 
 -- indicador.campo = 'tonMelProTotZaf'
 update stockfabricadetalle73 set modificable = true 
-where stockfabrica_id='ff80808174df04070174df06e1f40000' and indicador_id = '88';
+where indicador_id = '88';
+--where stockfabrica_id='ff80808174df04070174df06e1f40000' and indicador_id = '88';
 
 -- [ant]
 

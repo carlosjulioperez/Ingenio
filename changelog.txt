@@ -1,8 +1,11 @@
 TODO
 
 	Crear paquete laboratorio
+
+2021-09-24
 	Hacer modificable StockFabricaP / Totales / 2 Toneladas Melaza Producida Total/zafra
 	stockfabricadetalle73.tonMelProTotZaf
+	Cambio en la presentación del detalle de Caña Molida. Se cambia de tres filas a una columna.
 
 2021-09-23
 	Cambio de fórmula ax132 en StockFabrica
