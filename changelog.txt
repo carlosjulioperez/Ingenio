@@ -2,6 +2,12 @@ TODO
 
 	Crear paquete laboratorio
 
+2021-09-26
+	Agregar registros en indicador (194..202)
+	
+2021-09-25
+	Agregar campos en StockProceso
+
 2021-09-24
 	Hacer modificable StockFabricaP / Totales / 2 Toneladas Melaza Producida Total/zafra
 	stockfabricadetalle73.tonMelProTotZaf

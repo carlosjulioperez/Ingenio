@@ -18,6 +18,7 @@ import static org.openxava.jpa.XPersistence.*
     diaTrabajo, descripcion;
     titDetalle { detalle1 }
     titTotales { detalle2 }
+    titTotales { detalle3 }
 """)
 class StockProceso extends Formulario {
 
@@ -47,6 +48,9 @@ class StockProceso extends Formulario {
     
     @OneToMany (mappedBy="stockProceso", cascade=CascadeType.ALL) @XOrderBy("orden") @EditOnly
     Collection<StockProcesoDetalle2> detalle2
+    
+    @OneToMany (mappedBy="stockProceso", cascade=CascadeType.ALL) @XOrderBy("orden") @EditOnly
+    Collection<StockProcesoDetalle3> detalle3
     
     BigDecimal getSumTonBrix() {
         // println ">>>id: ${this.id}"
@@ -129,6 +133,12 @@ class StockProceso extends Formulario {
             lista = getManager().createQuery("FROM StockProcesoPDetalle2 WHERE stockProcesoP.id = 1 ORDER BY orden").getResultList()
             lista.each{
                 def d = new StockProcesoDetalle2(stockProceso: stockProceso, orden: it.orden, material: it.material)
+                getManager().persist(d)
+            }
+
+            lista = getManager().createQuery("FROM StockProcesoPDetalle3 WHERE stockProcesoP.id = 1 ORDER BY orden").getResultList()
+            lista.each{
+                def d = new StockProcesoDetalle3(stockProceso: stockProceso, orden: it.orden, indicador: it.indicador)
                 getManager().persist(d)
             }
 

@@ -9,6 +9,7 @@ import org.openxava.model.*
     codigo, descripcion;
     titDetalle { detalle }
     titTotales { detalle2 }
+    titTotales { detalle3 }
 """)
 class StockProcesoP{
     @Id
@@ -22,4 +23,7 @@ class StockProcesoP{
 
     @OneToMany (mappedBy="stockProcesoP", cascade=CascadeType.ALL) @XOrderBy("orden")
     Collection<StockProcesoPDetalle2> detalle2
+
+    @OneToMany (mappedBy="stockProcesoP", cascade=CascadeType.ALL) @XOrderBy("orden")
+    Collection<StockProcesoPDetalle3> detalle3
 }

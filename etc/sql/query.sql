@@ -14,6 +14,14 @@ update stockfabricadetalle73 set modificable = true
 where indicador_id = '88';
 --where stockfabrica_id='ff80808174df04070174df06e1f40000' and indicador_id = '88';
 
+select * from ingenio.indicador where descripcion like '%anterior%';
+select * from ingenio.indicador where campo like 'TonSacMel%'
+
+select * from ingenio.indicador;
+--delete from ingenio.indicador where id cin ('194','195','196','197','198','199','200','201','202','203')
+
+
+
 -- [ant]
 
 -- SELECT * FROM ingenio.paro;
