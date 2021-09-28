@@ -1,7 +1,14 @@
 -- [query editor]
 
-select id, diatrabajo_id, descripcion from ingenio.stockfabrica where descripcion like 'JUNIT';
 select * from ingenio.diatrabajo where id='ff80808172a5ebad0172c9078f1e0001';
+select id, diatrabajo_id, descripcion from ingenio.stockfabrica where descripcion like 'JUNIT';
+select * from ingenio.stockproceso where descripcion like 'JUNIT';
+select * from ingenio.azucargranel where diatrabajo_id = 'ff80808172a5ebad0172c9078f1e0001';
+select * from ingenio.mieles where diatrabajo_id = 'ff80808172a5ebad0172c9078f1e0001';
+
+select * from ingenio.stockprocesodetalle3;
+delete from ingenio.stockprocesodetalle3;
+update ingenio.stockprocesodetalle3 set valor=null;
 
 select i.descripcion, valor, d.indicador_id, i.campo, modificable
 from ingenio.stockfabricadetalle73 d, ingenio.indicador i
@@ -9,13 +16,44 @@ where d.indicador_id = i.id
 and stockfabrica_id='ff80808174df04070174df06e1f40000'
 order by orden;
 
+-- Stock Proceso
+SELECT   orden, m.descripcion, m.campo, volumen1, volumen2
+FROM     ingenio.stockprocesodetalle1 d, ingenio.material m
+WHERE    d.material_id = m.id AND
+		 stockproceso_id='ff80808174bd90450174bd9ee9310000'
+ORDER BY orden;
+
+--- detalle 3
+SELECT   orden, indicador_id, i.campo, i.descripcion, valor
+FROM     ingenio.stockprocesodetalle3 d, ingenio.indicador i
+WHERE    d.indicador_id = i.id AND
+		 stockproceso_id='ff80808174bd90450174bd9ee9310000'
+ORDER BY orden;
+
+--- detalle 3 de plantilla
+SELECT   d.id, orden, indicador_id, i.descripcion
+FROM     ingenio.stockprocesopdetalle3 d, ingenio.indicador i
+WHERE    d.indicador_id = i.id AND
+		 stockprocesop_codigo=1
+ORDER BY orden;
+
+--- INSERTAR A PARTIR DE OTRA TABLA
+INSERT INTO ingenio.stockprocesodetalle3
+	("id", orden, indicador_id, stockproceso_id)
+	SELECT   id, orden, indicador_id, 'ff80808174bd90450174bd9ee9310000'
+	FROM     ingenio.stockprocesopdetalle3
+	WHERE    stockprocesop_codigo=1
+
+select * from azucargranel where 
+
 -- indicador.campo = 'tonMelProTotZaf'
 update stockfabricadetalle73 set modificable = true 
 where indicador_id = '88';
 --where stockfabrica_id='ff80808174df04070174df06e1f40000' and indicador_id = '88';
 
 select * from ingenio.indicador where descripcion like '%anterior%';
-select * from ingenio.indicador where campo like 'TonSacMel%'
+select * from ingenio.indicador where campo like '%TonAzu%'
+select * from ingenio.indicador where id like '199'
 
 select * from ingenio.indicador;
 --delete from ingenio.indicador where id cin ('194','195','196','197','198','199','200','201','202','203')

@@ -2,8 +2,13 @@ TODO
 
 	Crear paquete laboratorio
 
+2021-09-27
+	Terminada la funcionalidad para StockProcesoDetalle3
+
 2021-09-26
 	Agregar registros en indicador (194..202)
+	Ingreso de indicador en StockProcesoP
+	Probar funcionalidad en StockProceso
 	
 2021-09-25
 	Agregar campos en StockProceso

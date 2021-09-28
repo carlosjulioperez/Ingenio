@@ -13,7 +13,7 @@ import org.openxava.validators.*
 import static org.openxava.jpa.XPersistence.*
 
 @Entity
-@Tab(properties="diaTrabajo.fecha, descripcion")
+@Tab(properties="diaTrabajo.fecha, descripcion", defaultOrder="e_diaTrabajo.fecha")
 @View(members="""
     diaTrabajo, descripcion;
     titDetalle { detalle1 }
@@ -49,7 +49,7 @@ class StockProceso extends Formulario {
     @OneToMany (mappedBy="stockProceso", cascade=CascadeType.ALL) @XOrderBy("orden") @EditOnly
     Collection<StockProcesoDetalle2> detalle2
     
-    @OneToMany (mappedBy="stockProceso", cascade=CascadeType.ALL) @XOrderBy("orden") @EditOnly
+    @OneToMany (mappedBy="stockProceso", cascade=CascadeType.ALL) @XOrderBy("orden") @ReadOnly
     Collection<StockProcesoDetalle3> detalle3
     
     BigDecimal getSumTonBrix() {
