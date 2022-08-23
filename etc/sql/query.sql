@@ -96,4 +96,4 @@
 -- UPDATE ingenio.ingenio.blcdetalle1 SET valor = 1719.97 WHERE "id" = 'ff80808174d572200174d5b05a450158';
 -- UPDATE ingenio.ingenio.blcdetalle1 SET valor = 1435.00 WHERE "id" = 'ff80808174d572200174d5b05a45015a';
 
-select * from diatrabajo;
+select * from ingenio.diatrabajo;

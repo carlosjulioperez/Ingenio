@@ -9,8 +9,9 @@
 	
     <!-- 2019-10-10 Agregado por carper -->
 	<property name="webinf.dir" value="web/WEB-INF" />
-    <property name="local.dir"  value="/home/carper/local" />
-
+    <!-- <property name="local.dir"  value="/home/carper/local" /> -->
+    <property name="local.dir"  value="/Users/carper/local" />
+	
 	<!-- <property name="sql.jar"    value="../OpenXava/lib/hsqldb.jar" /> -->
 	<!-- <property name="sql.driver" value="org.hsqldb.jdbcDriver"/> -->
 	<!-- <property name="sql.url"  	 value="jdbc:hsqldb:hsql://localhost:1666"/> -->
