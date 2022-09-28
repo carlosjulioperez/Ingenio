@@ -37,10 +37,10 @@ class QueryTest extends ModuleTestBase {
     }
 
     void test() throws Exception {
-        getPrueba()
+        //getPrueba()
         // crearItemsPorHora(Aux.instance.diaTrabajoId)
-        // getValorCampo()
-        // getValoresBlc()
+        getValorCampo()
+        //getValoresBlc()
         //getValoresServiciosInsumosFabrica()
         //getValoresAnalisisRutinariosEspecialesFabrica()
         //getValoresBlcCenicana()

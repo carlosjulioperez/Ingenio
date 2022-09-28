@@ -18,25 +18,29 @@ import static org.openxava.jpa.XPersistence.*
 
 @Entity
 @Tab(properties="""
-    diaTrabajo.fecha,
-    wH2O,
-    wCana,
-    polReal,
-    brixExtracto,
-    polExtracto,
-    tamizVacioM0,
-    muestraHumM1,
-    muestraSecaM2,
-    porcHumedad,
-    brix,
-    porcFibra,
-    porcSacarosa,
-    pureza,
-    nSac,
-    aR,
-    porcArNsac,
-    pH
+    diaTrabajo.fecha
 """)
+
+//     diaTrabajo.fecha,
+//     wH2O,
+//     wCana,
+//     polReal,
+//     brixExtracto,
+//     polExtracto,
+//     tamizVacioM0,
+//     muestraHumM1,
+//     muestraSecaM2,
+//     porcHumedad,
+//     brix,
+//     porcFibra,
+//     porcSacarosa,
+//     pureza,
+//     nSac,
+//     aR,
+//     porcArNsac,
+//     pH
+// """)
+
 @View(members="""
     diaTrabajo, wH2OTmp, wCanaTmp;
     titAnaCan { detalle1 }

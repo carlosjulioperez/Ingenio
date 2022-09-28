@@ -24,10 +24,16 @@
         <action name="crearTrash" mode="detail" 
         	class="ec.carper.ingenio.actions.TrashCanaCrearTrashAction">
     	</action>
+		<action name="generatePdf" mode="detail" confirm="true"
+			class="ec.carper.ingenio.actions.TrashCanaReportAction"
+			image="images/pdf.gif" keystroke="Control P"/>
     </controller>   
 
     <controller name="Cana">
         <extends controller="Formulario"/>
+		<action name="generatePdf" mode="detail" confirm="true"
+			class="ec.carper.ingenio.actions.CanaReportAction"
+			image="images/pdf.gif" keystroke="Control P"/>
     </controller>   
 
     <controller name="Jugo">
@@ -134,6 +140,13 @@
             class="ec.carper.ingenio.actions.StockProcesoCargarItemsAction"/>
 		<!-- <action name="editDetail" hidden="true" image="edit.gif" -->
 		<!-- 	class="ec.carper.ingenio.actions.StockProcesoEditDetail1Action"/> -->
+    </controller>  
+
+    <controller name="Trash">
+        <extends controller="Formulario"/>
+		<action name="generatePdf" mode="detail" confirm="true"
+			class="ec.carper.ingenio.actions.TrashReportAction"
+			image="images/pdf.gif" keystroke="Control P"/>
     </controller>   
 
 </controllers>

@@ -14,16 +14,19 @@ import java.time.LocalDate
 @Entity
 @Tab(properties="""
     diaTrabajo.fecha,
-    promCantCana, promNetaCana,
-    promCogollos, promPorcCogollos,
-    promHojas, promPorcHojas,
-    promCepa, promPorcCepa,
-    promCanaSeca, promPorcCanaSeca,
-    promSuelo, promPorcSuelo,
-    promOtros, promPorcOtros,
-    promTrashCana, promPorcTrash,
-    promCanaInfectada, promPorcCanaInfectada
 """)
+
+//     promCantCana, promNetaCana,
+//     promCogollos, promPorcCogollos,
+//     promHojas, promPorcHojas,
+//     promCepa, promPorcCepa,
+//     promCanaSeca, promPorcCanaSeca,
+//     promSuelo, promPorcSuelo,
+//     promOtros, promPorcOtros,
+//     promTrashCana, promPorcTrash,
+//     promCanaInfectada, promPorcCanaInfectada
+// """)
+
 @View(members="""
     diaTrabajo;
     titAnaTraCan { detalle }

@@ -8,8 +8,23 @@ class TrashTest extends ModuleTestBase {
         super(testName, "Ingenio", "Trash")
     }
 
+    void test() throws Exception {
+        login("admin", "admin")
+        consultar()
+    }
+    
+    void consultar(){
+        setConditionValues     ( [ "", "11/08/2021"] )
+        setConditionComparators( [ "=", "contains_comparator"] )
+        execute ("List.filter") 
+        execute ("List.viewDetail", "row=0")
+        //assertNoErrors()
+        execute ("Trash.generatePdf")
+        assertNoErrors()
+    }
+    
     // Este formulario se crea con datos parciales desde 
-    void testPonerDetalle() throws Exception {
+    void ponerDetalle() throws Exception {
         login("admin", "admin")
         assertListNotEmpty()
         execute("List.viewDetail", "row=0")
